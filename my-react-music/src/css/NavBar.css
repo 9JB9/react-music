@@ -1,0 +1,32 @@
+nav
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 10vh;
+    border: 1px solid #1A1A1E;
+    width: 100vw;
+}
+
+.nav-home{
+    padding: 0 10px;
+}
+
+.nav-links{
+    padding: 0 10px;
+    width: 25%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav-home a, .nav-links a{
+    transition: all 0.15s ease-in-out 0.15s;
+    padding: 15px;
+    border-radius: 4em;
+}
+
+.nav-home a:hover, .nav-links a:hover {
+    background-color: #1A1A1E;
+    color: #e4e4e7;
+}
+
