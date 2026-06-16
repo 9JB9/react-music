@@ -24,7 +24,6 @@ function App() {
           <Route path = '/trending/tracks' element = {<TrendingPage />} />
           <Route path = '/trending/albums' element = {<TrendingPage />} />
           <Route path = '/:itemType/:itemName/info' element = {<MusicInfo></MusicInfo>} />
-          <Route path = '/:itemType/:itemName/info' element = {<MusicInfo></MusicInfo>} />
         </Routes>
       </main>
       

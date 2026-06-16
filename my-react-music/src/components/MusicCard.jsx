@@ -54,7 +54,7 @@ function MusicCard ({music}) {
             <button className="music-card-btn" onClick={handleHeartClick}>
                 †
             </button>
-            <Link to = {`/${musicType}/${cardTitle}/info`}>
+            <Link to = {`/${musicType}/${cardTitle}/info`} state={{music}}>
                 <img src = {cardImg} alt = {`image for track/album: ${cardTitle}`}></img>
                 <div className="music-card-overlay">
                     <h2>{cardTitle}</h2>
