@@ -1,0 +1,39 @@
+.home-content{
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    scrollbar-width: thin;
+}
+
+.home-trending-albums{
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+    color: #e4e4e7;
+}
+
+.home-trending-singles{
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+    color: #e4e4e7;
+}
+
+.home-trending-cards{
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%;
+    gap: 6rem;
+}
+
+.home-trending-header {
+    width: 33%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

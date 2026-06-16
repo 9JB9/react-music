@@ -7,7 +7,8 @@ import {Routes, Route} from 'react-router-dom'
 import NavBar from './components/NavBar.jsx'
 import Home from './Pages/Home.jsx'
 import Favorites from './Pages/Favorites.jsx'
-
+import TrendingPage from './Pages/TrendingPage.jsx'
+import MusicInfo from './Pages/MusicInfo.jsx'
 function App() {
   
 
@@ -20,6 +21,10 @@ function App() {
         <Routes>
           <Route path = '/' element = {<Home />}/>
           <Route path = '/favorites' element = {<Favorites />} />
+          <Route path = '/trending/tracks' element = {<TrendingPage />} />
+          <Route path = '/trending/albums' element = {<TrendingPage />} />
+          <Route path = '/:itemType/:itemName/info' element = {<MusicInfo></MusicInfo>} />
+          <Route path = '/:itemType/:itemName/info' element = {<MusicInfo></MusicInfo>} />
         </Routes>
       </main>
       
