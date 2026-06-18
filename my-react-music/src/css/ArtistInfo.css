@@ -1,0 +1,32 @@
+p{
+    color: white;
+}
+
+.artist-info{
+    padding: 1.5rem;
+}
+
+.artist-info-artist-bio{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    /* border: 2px solid red; */
+    justify-items: center;
+    align-items: center;
+    /* gap: 1em; */
+}
+
+.artist-info-artist-bio img{
+    border-radius: 4em;
+}
+  
+.artist-info-artist-bio p{
+    font-size: 2vw;
+}
+/* .music-info-artist-bio :nth-child(1){
+    border: 2px solid yellow;
+}
+
+.music-info-artist-bio :nth-child(2){
+    border: 2px solid green;
+} */
+

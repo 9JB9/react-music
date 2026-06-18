@@ -1,3 +1,24 @@
-p{
-    color: white;
+h1{
+    color: #e4e4e7;
+    font-size: clamp(3rem, 8vw, 7rem);
+}
+
+h3{
+    color: #64748B;
+}
+
+.music-info-header{
+    height: 45vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.music-info-header img{
+    border-radius: 4em;
+}
+
+.music-info{
+    padding: 3rem;
 }

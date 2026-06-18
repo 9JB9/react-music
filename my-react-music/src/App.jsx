@@ -9,6 +9,7 @@ import Home from './Pages/Home.jsx'
 import Favorites from './Pages/Favorites.jsx'
 import TrendingPage from './Pages/TrendingPage.jsx'
 import MusicInfo from './Pages/MusicInfo.jsx'
+import ArtistInfo from './Pages/ArtistInfo.jsx'
 function App() {
   
 
@@ -24,6 +25,7 @@ function App() {
           <Route path = '/trending/tracks' element = {<TrendingPage />} />
           <Route path = '/trending/albums' element = {<TrendingPage />} />
           <Route path = '/:itemType/:itemName/info' element = {<MusicInfo></MusicInfo>} />
+          <Route path = '/artists/:artistName/info' element = {<ArtistInfo></ArtistInfo>} />
         </Routes>
       </main>
       

@@ -46,3 +46,15 @@ export const getArtistDescription = async (query) => {
     const data = await response.json()
     return data.results
 }
+
+export const getTrendingSinglesByArtist = async (query) => {
+    const response = await fetch (`${BASE_URL}/tracks/?client_id=${API_KEY}&format=jsonpretty&limit=all&artist_id=${query}`)
+    const data = await response.json()
+    return data.results
+}
+
+export const getTrendingAlbumsByArtist = async (query) => {
+    const response = await fetch (`${BASE_URL}/albums/?client_id=${API_KEY}&format=jsonpretty&limit=all&artist_id=${query}`)
+    const data = await response.json()
+    return data.results
+}
