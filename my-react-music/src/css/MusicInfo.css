@@ -8,7 +8,6 @@ h3{
 }
 
 .music-info-header{
-    height: 45vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -20,5 +19,58 @@ h3{
 }
 
 .music-info{
-    padding: 3rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    justify-content: space-around;
 }
+
+.music-info-download{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.music-info-download-btn{
+    display: flex;
+    justify-content: space-between;
+}
+
+.music-info-download-btn img {
+    flex-shrink: 0;
+    border-radius: 4em;
+}
+
+.music-info-download-btn button{    
+    flex-grow: 1;
+    background: none;
+    color: #e4e4e7;
+    cursor: pointer;
+    transition: all 0.15s ease-in-out 0.15s;
+    font-size: clamp(1rem, 1vw, 3rem);
+    border: 2px solid rgb(34, 197, 94);
+    border-radius: 4em;
+}
+
+.music-info-download-btn button:hover {
+    background-color: rgba(34, 197, 94, 0.15);
+}
+
+
+ /* Electric cyan
+#22d3ee */
+
+/* Bright blue */
+/* #3b82f6 */
+
+/* Neon violet */
+/* #a855f7 */
+
+/* Hot magenta */
+/* #ec4899 */
+
+/* Fresh green
+#22c55e */
+
+/* Amber highlight, warmer but punchy */
+/* #f59e0b */ */

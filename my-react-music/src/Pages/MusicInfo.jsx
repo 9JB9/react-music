@@ -1,9 +1,11 @@
 import "../css/MusicInfo.css"
-import "../css/Home.css"
+//import "../css/Home.css"
 import { useState, useEffect } from "react"
 import { useLocation } from "react-router-dom"
-import { getTrendingAlbumsByArtist, getTrendingSingles, getTrendingSinglesByArtist } from "../services/api";
+import { downloadAlbums, getTrendingAlbumsByArtist, getTrendingSingles, getTrendingSinglesByArtist } from "../services/api";
 import MusicCard from "../components/MusicCard";
+import { downloadSingles } from "../services/api";
+
 function MusicInfo (){
 
     const [singles, setSingles] = useState([])
@@ -15,6 +17,15 @@ function MusicInfo (){
     const musicReleaseDate = data.releasedate
     const artistID = data.artist_id
     const artistName = data.artist_name
+    const musicID = data.id
+
+    //we need some way to check whether or not this is an album or a single to use the proper download routine
+    let isSingleCheck = false
+    if (data.album_id === null){
+        isSingleCheck = true
+    }
+
+    //console.log(isSingleCheck)
 
     useEffect (() => {
         const loadSingles = async () => {
@@ -37,6 +48,43 @@ function MusicInfo (){
         loadSingles ()
     }, [artistID])
     
+
+    const handleDownloadClick = async () => {
+        if (isSingleCheck){
+            try{
+                const blob = await downloadSingles(musicID)
+                const blob_url = window.URL.createObjectURL(blob)
+                const link = document.createElement('a')
+                link.href = blob_url
+                link.download = `${musicTitle}-${artistName}.mp3`
+
+                document.body.appendChild(link)
+                link.click()
+                document.body.removeChild(link)
+
+                window.URL.revokeObjectURL(blob_url)
+            } catch(err){
+                console.log("music (singles) download routine has gone wrong")
+            }
+        }
+        else{
+            try{
+                const blob = await downloadAlbums(musicID)
+                const blob_url = window.URL.createObjectURL(blob)
+                const link = document.createElement('a')
+                link.href = blob_url
+                link.download = `${musicTitle}-${artistName}.mp3`
+
+                document.body.appendChild(link)
+                link.click()
+                document.body.removeChild(link)
+
+                window.URL.revokeObjectURL(blob_url)
+            } catch (err) {
+                console.log("music (albums) download routine has gone wrong")
+            }
+        }
+    }
     return (
         <div className="music-info">
             <div className="music-info-header">
@@ -45,19 +93,28 @@ function MusicInfo (){
                 <h3>{musicReleaseDate}</h3>
             </div>
             <div className="music-info-download">
-                DOWNLOAD
+                <div className="music-info-download-btn">
+                    <button onClick={handleDownloadClick}>Click here to download!</button>
+                    <img src = {musicImage} alt = "music art or thumbnail"></img>
+                </div>
+                <h2>Streaming</h2>
             </div>
             <div className="home-trending-singles">
                 <div className="home-trending-header">
-                    <h2>More singles by {artistName}</h2>
+                    <h2>More {isSingleCheck ? "tracks" : "albums"} by {artistName}</h2>
                 </div>
                 <div className="home-trending-cards">
-                    {singles && singles.slice(0,9).map((single) => { //everything is truthy. things return values, and those values are truthy. JS allows you to put full blown expressions as booleans (including arrays, really anything). unlike Java and similar languages, where you are limited to boolean values
-                    return <MusicCard music = {single} key = {single.id}/>
-                    })}
+                    {isSingleCheck ?
+                        (singles.map((single) => {
+                            return <MusicCard music = {single} key = {single.id} />
+                        })) :
+                            (albums.map((album) => {
+                                return <MusicCard music = {album} key = {album.id} />
+                            }))
+                    }
                 </div>
-            </div>
 
+            </div>
         </div>
     )
 }

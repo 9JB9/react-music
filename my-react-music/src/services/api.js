@@ -58,3 +58,17 @@ export const getTrendingAlbumsByArtist = async (query) => {
     const data = await response.json()
     return data.results
 }
+
+export const downloadSingles = async (track_id) => {
+    const response = await fetch (`${BASE_URL}/tracks/file/?client_id=${API_KEY}&id=${track_id}&action=download`)
+    
+    //maybe do an error check in here in case the response thing goes wrong, but we can also handle it outside
+    const data = await response.blob()
+    return data
+}
+
+export const downloadAlbums = async (album_id) => {
+    const response = await fetch (`${BASE_URL}/albums/file/?client_id=${API_KEY}&id=${album_id}`)
+    const data = await response.blob()
+    return data
+}
