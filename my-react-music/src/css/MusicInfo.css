@@ -42,7 +42,7 @@ h3{
 }
 
 .music-info-download-btn button{    
-    flex-grow: 1;
+    /* flex-grow: 1; */
     background: none;
     color: #e4e4e7;
     cursor: pointer;
@@ -50,12 +50,14 @@ h3{
     font-size: clamp(1rem, 1vw, 3rem);
     border: 2px solid rgb(34, 197, 94);
     border-radius: 4em;
+    width: 50%;
 }
 
 .music-info-download-btn button:hover {
     background-color: rgba(34, 197, 94, 0.15);
 }
 
+.music-info-download-btn
 
  /* Electric cyan
 #22d3ee */

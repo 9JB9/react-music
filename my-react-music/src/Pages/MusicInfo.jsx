@@ -2,11 +2,11 @@ import "../css/MusicInfo.css"
 //import "../css/Home.css"
 import { useState, useEffect } from "react"
 import { useLocation } from "react-router-dom"
-import { downloadAlbums, getTrendingAlbumsByArtist, getTrendingSingles, getTrendingSinglesByArtist } from "../services/api";
+import { getTrendingAlbumsByArtist, getTrendingSingles, getTrendingSinglesByArtist } from "../services/api";
 import MusicCard from "../components/MusicCard";
 import { downloadSingles } from "../services/api";
 
-function MusicInfo (){
+function MusicInfo () {
 
     const [singles, setSingles] = useState([])
     const [albums, setAlbums] = useState([])
@@ -18,6 +18,8 @@ function MusicInfo (){
     const artistID = data.artist_id
     const artistName = data.artist_name
     const musicID = data.id
+    const API_KEY = "50caa513"
+    const BASE_URL = "https://api.jamendo.com/v3.0"
 
     //we need some way to check whether or not this is an album or a single to use the proper download routine
     let isSingleCheck = false
@@ -69,17 +71,15 @@ function MusicInfo (){
         }
         else{
             try{
-                const blob = await downloadAlbums(musicID)
-                const blob_url = window.URL.createObjectURL(blob)
+                const url = `${BASE_URL}/albums/file/?client_id=${API_KEY}&id=${musicID}`
                 const link = document.createElement('a')
-                link.href = blob_url
-                link.download = `${musicTitle}-${artistName}.mp3`
+                link.href = url
+
+                link.download = `album_${musicTitle}-${artistName}.zip`
 
                 document.body.appendChild(link)
                 link.click()
                 document.body.removeChild(link)
-
-                window.URL.revokeObjectURL(blob_url)
             } catch (err) {
                 console.log("music (albums) download routine has gone wrong")
             }
