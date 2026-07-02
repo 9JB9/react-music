@@ -10,11 +10,13 @@ import Favorites from './Pages/Favorites.jsx'
 import TrendingPage from './Pages/TrendingPage.jsx'
 import MusicInfo from './Pages/MusicInfo.jsx'
 import ArtistInfo from './Pages/ArtistInfo.jsx'
+import { MusicProvider } from './contexts/MusicContext.jsx'
 function App() {
   
 
   return (
     <>
+    <MusicProvider>
       <header>
         <NavBar /> {/* what happens when i don't want to have this here... we could use JS to conditionally control when it renders */}
       </header>
@@ -28,7 +30,7 @@ function App() {
           <Route path = '/artists/:artistName/info' element = {<ArtistInfo></ArtistInfo>} />
         </Routes>
       </main>
-      
+    </MusicProvider>
     </>
   )
 }

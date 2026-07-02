@@ -12,6 +12,7 @@ h3{
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+    padding-bottom: 3rem;
 }
 
 .music-info-header img{
@@ -28,7 +29,7 @@ h3{
 
 .music-info-download{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
 }
 
 .music-info-download-btn{
@@ -50,7 +51,7 @@ h3{
     font-size: clamp(1rem, 1vw, 3rem);
     border: 2px solid rgb(34, 197, 94);
     border-radius: 4em;
-    width: 50%;
+    width: 75%;
 }
 
 .music-info-download-btn button:hover {

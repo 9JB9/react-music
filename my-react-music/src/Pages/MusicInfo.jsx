@@ -97,7 +97,6 @@ function MusicInfo () {
                     <button onClick={handleDownloadClick}>Click here to download!</button>
                     <img src = {musicImage} alt = "music art or thumbnail"></img>
                 </div>
-                <h2>Streaming</h2>
             </div>
             <div className="home-trending-singles">
                 <div className="home-trending-header">

@@ -1,4 +1,5 @@
 //this one is going to be the display card for both singles and albums
+import { useMusicContext } from "../contexts/MusicContext"
 import "../css/MusicCard.css"
 import { Link } from "react-router-dom"
 
@@ -38,6 +39,9 @@ function MusicCard ({music}) {
     const cardTitle = music.name
     const cardReleaseDate = music.releasedate
 
+    const {isFavorite, addToFavorites, removeFromFavorites} = useMusicContext()
+    const favorite = isFavorite(music.id)
+
     const handleHeartClick = (e) =>{
         e.preventDefault() //prevents default behavior. so in this case since the button and the 
                            //link are bubbled up, it will stop any of the behavior in the mix, and that includes
@@ -47,12 +51,13 @@ function MusicCard ({music}) {
                             //at the same time from the same click.
         
         //handle favorite saving behavior here
-
+        if (favorite) removeFromFavorites(music.id)
+        else addToFavorites(music)
     }
     return (
         <div className="music-card">
             <button className="music-card-btn" onClick={handleHeartClick}>
-                †
+                <span className = {`heart${favorite ? "-fav" : ""}`}> ❤ </span>
             </button>
             <Link to = {`/${musicType}/${cardTitle}/info`} state={{music}}>
                 <img src = {cardImg} alt = {`image for track/album: ${cardTitle}`}></img>

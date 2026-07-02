@@ -43,16 +43,19 @@
 .music-card:hover .music-card-btn {
     opacity: 1;
     background-color: #1a1a1e;
-    color: purple;  
+    color: #e4e4e7;
 }
 
+.music-card:hover .music-card-btn:hover .heart {
+    color: red;
+}
 .music-card:hover img{
     border: 2px solid white;
     border-top-left-radius: 2em;
     border-top-right-radius: 2em;
 }
 
-.music-card img{
+.music-card img {
     display: block; /*INLINE objects are cringe, and reserve space below them sometimes... so we turn them into block to kill it*/
     object-fit: cover;
     width: 100%;
@@ -62,7 +65,7 @@
     transition: all 0.15s ease-in-out 0.15s;
 }
 
-.music-card-overlay{
+.music-card-overlay {
     max-height: 25%;
     display: flex;
     flex: 1;
@@ -77,7 +80,16 @@
     height: 100%;
 }   
 
-.music-card a{
+.music-card a {
     height: 100%;
     width: 100%;
+}
+
+.heart {
+    color: #e4e4e7;
+    transition: all 0.15s ease-in-out 0.15s;
+}
+
+.heart-fav {
+    color: red;
 }

@@ -1,0 +1,25 @@
+.favorites-content{
+    width: 100vw;
+    box-sizing: border-box;
+    padding: 1.5rem;
+}
+
+.favorites-header{
+    text-align: center;
+    padding-bottom: 6rem;
+}
+
+.favorite-cards{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    box-sizing: border-box;
+    width: 100%;
+    justify-items: center;
+    row-gap: 5rem;
+    color: #64748b;
+}
+
+.favorite-cards-text{
+    color: #64748b;
+    text-align: center;
+}
