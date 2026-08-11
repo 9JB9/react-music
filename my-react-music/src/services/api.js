@@ -20,7 +20,7 @@
 //     //every API structure.
 // }
 
-const API_KEY = "50caa513" //this is the client_id according to Jamendo
+//the api key would be declared here
 const BASE_URL = "https://api.jamendo.com/v3.0" //not sure if it acc is this, but we ball
 
 export const getTrendingAlbums = async () => { //whatever has been trending this past week
